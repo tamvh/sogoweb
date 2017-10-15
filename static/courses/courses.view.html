@@ -1,0 +1,168 @@
+<script type="text/javascript" src="vendor/plugins/tagsinput/tagsinput.min.js"></script>
+<div>
+    <div ng-include src="loadSidebarTemplate"></div> 
+    <div ng-include src="loadHeaderTemplate"></div> 
+</div>
+<section id="content_wrapper">
+    <!-- Start: Topbar -->
+    <header id="topbar"></header>
+    <!-- End: Topbar -->
+
+
+    <!-- Begin: Content -->
+    <section id="content" class="animated fadeIn">
+        <div style="height: 40px; width: 100%;">
+
+            <div class="topbar-right">
+                <a ng-click = "addnewcourse()" class="btn btn-default btn-sm light fw600 ml10"><span class="fa fa-plus pr5"></span> Add New Course</a>
+                <a ng-click = "viewcard()"  class="btn btn-default btn-sm light fw600 ml10"><span class="glyphicons glyphicons-table pr5"></span> View Card</a>
+                <a ng-click = "viewlist()" class="btn btn-default btn-sm light fw600 ml10"><span class="glyphicons glyphicons-list pr5"></span> View List</a>
+            </div>
+        </div>
+        <div class="panel">
+
+            <div class="panel-body pn" ng-show = "!view_type">
+                <table class="table admin-form theme-warning tc-checkbox-1 fs13">
+                    <thead>
+                        <tr class="bg-light">
+                            <th class="">Course Title</th>
+                            <th class="">Short Description</th>
+                            <th class="text-right">Action</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat = "item in listcourse">
+                            <td class="">{{item.courseTitle}}</td>
+                            <td class="">{{item.courseShortDes}}</td>
+                            <td class="text-right">
+                                <div class="btn-group text-right">
+                                    <a ng-click = "viewdetails(item)"  class="btn btn-default btn-sm light fw600 ml10">View details</a>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row mb10" ng-show = "view_type">
+            <div ng-repeat = "item in listcourse" class="col-md-6">
+                <div class="admin-form theme-primary">
+                    <div class="panel">
+                        <div class="panel-body">
+                            <div class="section">
+                                <div class="smart-widget sm-right smr-50">
+                                    <label class="field">
+                                        <input type="text" value ="{{item.courseTitle}}" class="gui-input" placeholder="Course Title">
+                                    </label>
+                                    <button type="submit" class="button" ng-click = "editCourseTitle(item.cindex)"> <i class="{{item.iconCourseTitle}}"></i>
+                                    </button>
+                                </div>
+                            </div>  
+                            <div style="padding-bottom: 10px;">
+                                <span style="color: red;">Category
+                            </div>    
+                            <div>
+                                <div class="mix label1 folder1">
+                                    <div class="panel p6 pbn">
+                                        <div class="of-h">
+                                            <img src="{{item.courseImage}}" class="h-170" title="{{item.courseImage}}">
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="padding-bottom: 10px;">
+                                <span style="color: red;">Trainer</span>
+                            </div> 
+                            <div class = "row section">
+                                <div class="col-md-2" ng-repeat = "itemTrainer in item.trainerInfo">
+                                    <button type="button" class="btn ladda-button btn-default" data-style="expand-up">
+                                        <span class="ladda-label">Trainer {{itemTrainer.userId}}</span>
+                                    </button>
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="button" class="btn ladda-button btn-default" data-style="expand-up" ng-click = "getAllTrainer()">
+                                        <span class="ladda-label">+</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div style="padding-bottom: 10px;">
+                                <span style="color: red;">Short description</span>
+                            </div> 
+
+                            <div class="section">
+                                <textarea class="gui-textarea" ng-model = "item.courseShortDes" id="shortdescription" name="shortdescription" placeholder="Short description">{{item.courseShortDes}}</textarea>   
+                                <div class = "row" style="padding-top: 10px;">
+                                    <div class="col-md-2">
+                                        <button type="button" class="btn ladda-button btn-default" data-style="expand-up" ng-click = "updateShortDesc(item)">
+                                            <span class="ladda-label">Save</span>
+                                        </button>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <button type="button" class="btn ladda-button btn-default" data-style="expand-up">
+                                            <span class="ladda-label">x</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="padding-bottom: 10px;">
+                                <span style="color: red;">Description</span>
+                            </div> 
+
+                            <div class="section">
+                                <textarea class="gui-textarea" ng-model = "item.courseDes" id="description" name="description" placeholder="Description">{{item.courseDes}}</textarea>   
+                                <div class = "row" style="padding-top: 10px;">
+                                    <div class="col-md-2">
+                                        <button type="button" class="btn ladda-button btn-default" data-style="expand-up" ng-click = "updateDescription(item)">
+                                            <span class="ladda-label">Save</span>
+                                        </button>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <button type="button" class="btn ladda-button btn-default" data-style="expand-up">
+                                            <span class="ladda-label">x</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="padding-bottom: 10px;">
+                                <span style="color: red;">Unit</span>
+                            </div> 
+                            <div class="section" >
+                                <div style="padding-bottom: 5px">
+                                    <div ng-repeat = "unitItem in item.unitInfo">
+                                        <button type="button" class="btn ladda-button btn-default" data-style="expand-up">
+                                            <span class="ladda-label">Unit {{unitItem.unitId}}</span>
+                                        </button>
+                                    </div>
+                                    <!--                                
+                                                                        <input  type="text"class="gui-input" placeholder="Unit {{unitItem.unitId}}">
+                                                                    </div>-->
+                                </div>
+
+                                <button type="button" class="btn ladda-button btn-default" data-style="expand-up">
+                                    <span class="ladda-label">+</span>
+                                </button>
+                            </div>                
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </section>
+    <!-- End: Content -->
+
+</section>
+
+
+

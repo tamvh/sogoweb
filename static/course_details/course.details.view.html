@@ -1,0 +1,140 @@
+<script type="text/javascript" src="vendor/plugins/tagsinput/tagsinput.min.js"></script>
+<div>
+    <div ng-include src="loadSidebarTemplate"></div> 
+    <div ng-include src="loadHeaderTemplate"></div> 
+</div>
+<section id="content_wrapper">
+    <!-- Start: Topbar -->
+    <header id="topbar"></header>
+    <!-- End: Topbar -->
+
+    <!-- Begin: Content -->
+    <section id="content" class="animated fadeIn">
+        <div class="row mb10">
+            <div class="col-md-12">
+                <div class="admin-form theme-primary">
+                    <div style="height: 40px; width: 100%;">
+                        <div class="topbar-right">
+                            <a ng-click = "back2courselist()" class="btn btn-default btn-sm light fw600 ml10"><span class="glyphicons glyphicons-fast_backward"></span>  View List Course</a>
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-body">
+                            <div class="section">
+                                <div class="smart-widget sm-right smr-50">
+                                    <label class="field">
+                                        <input type="text" ng-model = "courseTitle" class="gui-input" placeholder="Course Title">
+                                    </label>
+                                    <button type="submit" class="button"> <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>  
+                            <div style="padding-bottom: 10px;">
+                                <span style="color: red;">Category </span>
+                            </div>    
+                            <div>
+                                <div class="mix label1 folder1">
+                                    <div class="panel p6 pbn">
+                                        <div class="of-h">
+                                            <img src="" class="h-170" title="">
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="padding-bottom: 10px;">
+                                <span style="color: red;">Trainer</span>
+                            </div> 
+                            <div class = "row section">
+                                <div class="col-md-2" >
+                                    <button type="button" class="btn ladda-button btn-default" data-style="expand-up">
+                                        <span class="ladda-label">Trainer </span>
+                                    </button>
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="button" class="btn ladda-button btn-default" data-style="expand-up">
+                                        <span class="ladda-label">Trainer 2</span>
+                                    </button>
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="button" class="btn ladda-button btn-default" data-style="expand-up" ng-click = "getAllTrainer()">
+                                        <span class="ladda-label">+</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div style="padding-bottom: 10px;">
+                                <span style="color: red;">Short description</span>
+                            </div> 
+
+                            <div class="section">
+                                <textarea class="gui-textarea" ng-model = "courseShortDes" placeholder="Short description"></textarea>   
+                                <div class = "row" style="padding-top: 10px;">
+                                    <div class="col-md-2">
+                                        <button type="button" class="btn ladda-button btn-default" data-style="expand-up" ng-click = "updateShortDesc(item)">
+                                            <span class="ladda-label">Save</span>
+                                        </button>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <button type="button" class="btn ladda-button btn-default" data-style="expand-up">
+                                            <span class="ladda-label">x</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="padding-bottom: 10px;">
+                                <span style="color: red;">Description</span>
+                            </div> 
+
+                            <div class="section">
+                                <textarea class="gui-textarea" ng-model = "courseDes" placeholder="Description"></textarea>   
+                                <div class = "row" style="padding-top: 10px;">
+                                    <div class="col-md-2">
+                                        <button type="button" class="btn ladda-button btn-default" data-style="expand-up" ng-click = "updateDescription(item)">
+                                            <span class="ladda-label">Save</span>
+                                        </button>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <button type="button" class="btn ladda-button btn-default" data-style="expand-up">
+                                            <span class="ladda-label">x</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="padding-bottom: 10px;">
+                                <span style="color: red;">Unit</span>
+                            </div> 
+                            <div class="section" >
+                                <div style="padding-bottom: 5px">
+                                    <input  type="text" name="unit1" id="unit1" class="gui-input" placeholder="Unit name 1">
+                                </div>
+                                <div style="padding-bottom: 5px">
+                                    <input type="text" name="unit2" id="unit2" class="gui-input" placeholder="Unit name 2">
+                                </div>
+                                <div style="padding-bottom: 5px">
+                                    <input type="text" name="unit3" id="unit3" class="gui-input" placeholder="Unit name 3">
+                                </div>
+                                <button type="button" class="btn ladda-button btn-default" data-style="expand-up">
+                                    <span class="ladda-label">+</span>
+                                </button>
+                            </div>                
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </section>
+    <!-- End: Content -->
+
+</section>
+
+
+

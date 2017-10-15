@@ -1,0 +1,66 @@
+<div id="skin-toolbox">
+    <div class="panel">
+        <div class="panel-body pn">
+            <div class="tab-content p20 ptn pb15">
+            </div>
+        </div>
+    </div>
+</div>
+
+<header class="navbar navbar-fixed-top bg-light" ng-controller="HeaderController">
+    <div class="navbar-branding">
+        <a class="navbar-brand" href="/static/#/dashboard"> <b>Sogo</b> admin
+        </a>
+        <span id="toggle_sidemenu_l" class="glyphicons glyphicons-show_lines"></span>
+        <ul class="nav navbar-nav pull-right hidden">
+            <li>
+                <a href="#" class="sidebar-menu-toggle">
+                    <span class="octicon octicon-ruby fs20 mr10 pull-right "></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <ul class="nav navbar-nav navbar-left">
+        <li>
+            <a>
+                <span class="glyphicons glyphicons-home"></span>
+                <span> / </span>
+                <span>{{titlePage}}</span>
+            </a>
+        </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+            <a class="dropdown-toggle fw600 p15" data-toggle="dropdown"> 
+                <img src="assets/img/avatars/1.jpg" alt="avatar" class="mw30 br64 mr15">
+                <span>{{g_username}}</span>
+                <span class="caret caret-tp hidden-xs"></span>
+            </a>
+            <ul class="dropdown-menu dropdown-persist pn w250 bg-white" role="menu">
+                <li class="br-t of-h" ng-click = "changepassword()">
+                    <a href="#" class="fw600 p12 animated animated-short fadeInDown">
+                        <span class="fa fa-gear pr5"></span> Change Password </a>
+                </li>
+                <li class="br-t of-h" ng-click = "logout()">
+                    <a href="#" class="fw600 p12 animated animated-short fadeInDown">
+                        <span class="fa fa-power-off pr5"></span> Logout </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</header>
+<script type="text/javascript" src="assets/js/utility/utility.js"></script>
+<script type="text/javascript" src="assets/js/main.js"></script>
+<script type="text/javascript" src="assets/js/demo.js"></script>
+
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        "use strict";
+        // Init Theme Core      
+        Core.init();
+
+        // Init Demo JS
+        Demo.init();
+
+    });
+</script>
